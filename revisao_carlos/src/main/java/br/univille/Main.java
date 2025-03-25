@@ -6,22 +6,25 @@ public class Main {
     public static void main(String[] args) {
         
         Cidade mcp = new Cidade(0, "MACAPÁ", "AP");
-        Cidade fdv = new Cidade(1, "FREDERICO W.", "RS");
 
-        Pokemon pkm1 = new Pokemon("BUALBASSAURO");
+        Pokemon pkm1 = new Pokemon("BULBASSAURO");
         Pokemon pkm2 = new Pokemon("PIKACHU");
         
-        Cliente c1 = new Cliente("LORENZO");
-        c1.setCidade(fdv);
+        Cliente c1 = new Cliente("CARLOS");
+        c1.setCidade(mcp);
         c1.getPokemons().add(pkm1);
-        Cliente c2 = new Cliente("CARLOS");
-        c2.setCidade(mcp);
-        c2.getPokemons().add(pkm2);
+        c1.getPokemons().add(pkm2);
 
-        // c1.setPokemons(ArrayList<new Pokemon("ATA")>);
+        for (int i = 0; i < c1.getPokemons().size(); i++) {
+            var umPokemon = c1.getPokemons().get(i);
+            System.out.println(umPokemon);
+        }
 
-        System.out.println(c1.toString());
-        System.out.println(c2.toString());
+        for (var umPokemon : c1.getPokemons()) {
+            System.out.println(umPokemon);
+        }
+
+        c1.getPokemons().stream().forEach(System.out::println);
 
     }
 }

@@ -8,7 +8,7 @@ public class Cliente {
     private String endereco;
 
     private Cidade cidade;
-    private ArrayList pokemons = new ArrayList();
+    private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
     public Cliente(String nome){
         this.nome = nome;
@@ -16,9 +16,9 @@ public class Cliente {
     
     @Override
     public String toString() {
-        return "Cliente [id=" + id + ", nome=" + nome + ", endereco=" + endereco + ", cidade=" + cidade + "]";
+        return "Cliente [id=" + id + ", nome=" + nome + ", endereco=" + endereco + ", cidade=" + cidade + ", pokemons="
+                + pokemons + "]";
     }
-
 
     public long getId() {return id;}
     public void setId(long id) {this.id = id;}
@@ -32,8 +32,8 @@ public class Cliente {
     public Cidade getCidade() {return cidade;}
     public void setCidade(Cidade cidade) {this.cidade = cidade;}
 
-    public ArrayList getPokemons() {return pokemons;}
-    public void setPokemons(ArrayList pokemons) {this.pokemons = pokemons;}
+    public ArrayList<Pokemon> getPokemons() {return pokemons;}
+    public void setPokemons(ArrayList<Pokemon> pokemons) {this.pokemons = pokemons;}
 
     
 }
