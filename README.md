@@ -11,6 +11,21 @@
     - CRUD para clientes e funcionários da MP;
     - Dashboard com metricas do andamento do processo;
 
+## Estrutura do Projeto
+O projeto é composto pelas seguintes classes que representam as entidades do sistema de gestão de fila de produção:
+
+- **Client**: Representa um cliente no sistema, com propriedades como `id`, `name`, `contactInfo` e métodos para acessar e modificar essas informações.
+  
+- **Employee**: Representa um funcionário envolvido no processo de produção, com propriedades como `id`, `name`, `role` e métodos para acessar e modificar essas informações.
+  
+- **Demand**: Representa uma demanda na fila de produção, com propriedades como `id`, `establishment`, `responsible`, `status`, `deadline` e métodos para acessar e modificar essas informações.
+  
+- **Establishment**: Representa um estabelecimento comercial, com propriedades como `id`, `name`, `address` e métodos para acessar e modificar essas informações.
+  
+- **ProductionStage**: Representa uma etapa no processo de produção, com propriedades como `id`, `name`, `description` e métodos para acessar e modificar essas informações.
+  
+- **Status**: Representa o status de uma demanda, com propriedades como `id`, `name` e métodos para acessar e modificar essas informações.
+
 ## Histórias de Usuário
 - Desejo que os usuários possam cadastrar demandas relacionadas às diferentes etapas do processo (coleta, montagem e implantação), de forma que o fluxo de trabalho seja claramente identificado desde o início.
 

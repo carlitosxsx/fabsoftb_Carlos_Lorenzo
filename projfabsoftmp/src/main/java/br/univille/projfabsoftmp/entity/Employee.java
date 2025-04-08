@@ -1,9 +1,18 @@
 package entity;
 
+@Entity
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private String role;
+    @OneToMany(mappedBy = "leader")
+    @Column(nullable = false)
+    private Employee leader;
 
     public Employee(int id, String name, String role) {
         this.id = id;

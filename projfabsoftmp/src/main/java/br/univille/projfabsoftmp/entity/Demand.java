@@ -1,17 +1,24 @@
 package entity;
 
-import java.time.LocalDate;
-
+@Entity
 public class Demand {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Establishment establishment;
+    @Column(length = 500, nullable = false)
+    private String name;
+    @ManyToOne
     private Employee responsible;
+    @OneToOne
+    private Client client;
+    @ManyToOne
     private Status status;
-    private LocalDate deadline;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date deadline;
 
-    public Demand(int id, Establishment establishment, Employee responsible, Status status, LocalDate deadline) {
+    public Demand(int id, Employee responsible, Status status, Date deadline) {
         this.id = id;
-        this.establishment = establishment;
         this.responsible = responsible;
         this.status = status;
         this.deadline = deadline;
@@ -19,10 +26,6 @@ public class Demand {
 
     public int getId() {
         return id;
-    }
-
-    public Establishment getEstablishment() {
-        return establishment;
     }
 
     public Employee getResponsible() {
@@ -33,7 +36,7 @@ public class Demand {
         return status;
     }
 
-    public LocalDate getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 

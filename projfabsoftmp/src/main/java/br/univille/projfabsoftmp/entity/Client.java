@@ -1,11 +1,14 @@
 package entity;
 
+@Entity
 public class Client {
+    @Id
+    @GeneretedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(lenght = 500, nullable = false)
     private String name;
-    private String contactInfo;
 
-    public Client(int id, String name, String contactInfo) {
+    public Client(int id, String name) {
         this.id = id;
         this.name = name;
         this.contactInfo = contactInfo;
