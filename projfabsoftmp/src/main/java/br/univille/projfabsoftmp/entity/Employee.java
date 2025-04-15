@@ -10,7 +10,6 @@ public class Employee {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private String role;
     @ManyToOne
     private Employee leader;
