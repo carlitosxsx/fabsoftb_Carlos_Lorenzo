@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 import br.univille.projfabsoftmp.entity.Client;
 
 @Repository
-public interface ClientRepository 
-    extends JpaRepository<Client, Long> {
-   
-    List<Client> findByNameBetween(String start, String end);
+public interface ClientRepository
+        extends JpaRepository<Client, Long> {
 
 }

@@ -1,19 +1,22 @@
-package entity;
+package br.univille.projfabsoftmp.entity;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Status {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(length = 500, nullable = false)
     private String name;
 
-    public Status(int id, String name) {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Status(long id, String name) {
         this.id = id;
-        @Column(length = 500, nullable = false)
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

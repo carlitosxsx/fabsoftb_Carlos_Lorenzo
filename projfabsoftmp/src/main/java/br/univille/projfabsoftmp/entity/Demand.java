@@ -1,10 +1,14 @@
-package entity;
+package br.univille.projfabsoftmp.entity;
+
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.persistence.*;
 
 @Entity
 public class Demand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column(length = 500, nullable = false)
     private String name;
     @ManyToOne
@@ -17,14 +21,14 @@ public class Demand {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
 
-    public Demand(int id, Employee responsible, Status status, Date deadline) {
+    public Demand(long id, Employee responsible, Status status, Date deadline) {
         this.id = id;
         this.responsible = responsible;
         this.status = status;
         this.deadline = deadline;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
