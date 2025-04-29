@@ -1,6 +1,11 @@
 package br.univille.projfabsoftmp.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Employee {
@@ -20,19 +25,31 @@ public class Employee {
         this.role = role;
     }
 
+    public Employee() {
+    }
+
     public long getId() {
         return id;
     }
-
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getRole() {
         return role;
     }
-
     public void setRole(String role) {
         this.role = role;
+    }
+    public Employee getLeader() {
+        return leader;
+    }
+    public void setLeader(Employee leader) {
+        this.leader = leader;
     }
 }

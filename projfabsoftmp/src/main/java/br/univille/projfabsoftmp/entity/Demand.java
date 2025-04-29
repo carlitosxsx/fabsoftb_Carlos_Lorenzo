@@ -1,8 +1,18 @@
 package br.univille.projfabsoftmp.entity;
 
 import java.util.Date;
+
 import org.springframework.format.annotation.DateTimeFormat;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Demand {
@@ -28,23 +38,43 @@ public class Demand {
         this.deadline = deadline;
     }
 
+    public Demand() {
+    }
+
     public long getId() {
         return id;
     }
-
+    public void setId(long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public Employee getResponsible() {
         return responsible;
     }
-
+    public void setResponsible(Employee responsible) {
+        this.responsible = responsible;
+    }
+    public Client getClient() {
+        return client;
+    }
+    public void setClient(Client client) {
+        this.client = client;
+    }
     public Status getStatus() {
         return status;
     }
-
+    public void setStatus(Status status) {
+        this.status = status;
+    }
     public Date getDeadline() {
         return deadline;
     }
-
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
 }
