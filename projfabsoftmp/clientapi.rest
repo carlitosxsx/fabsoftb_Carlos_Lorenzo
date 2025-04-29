@@ -1,9 +1,20 @@
+### API GET -----------------------------
 GET http://localhost:8080/api/v1/client
 
+### API INSERT -----------------------------
 POST http://localhost:8080/api/v1/client
 Content-Type: application/json
 
 {
     "id": 0,
-    "nome": "PIZZA DI QUE?",
+    "name": "Via Roma"
 }
+### API UPDATE -----------------------------
+PUT http://localhost:8080/api/v1/client/2
+Content-Type: application/json
+
+{
+    "name": "Via Veneza"
+}
+### API DELETE -----------------------------
+DELETE http://localhost:8080/api/v1/client/1
