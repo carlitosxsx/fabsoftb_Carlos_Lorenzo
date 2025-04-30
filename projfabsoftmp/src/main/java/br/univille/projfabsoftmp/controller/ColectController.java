@@ -11,66 +11,66 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.univille.projfabsoftmp.entity.Status;
-import br.univille.projfabsoftmp.service.StatusService;
+import br.univille.projfabsoftmp.entity.Colect;
+import br.univille.projfabsoftmp.service.ColectService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/v1/status")
-public class StatusController {
+@RequestMapping("/api/v1/colect")
+public class ColectController {
 
     @Autowired
-    private StatusService service;
+    private ColectService service;
 
     @GetMapping
-    public ResponseEntity<List<Status>> getStatuss() {
-        var listaStatuses = service.getAll();
+    public ResponseEntity<List<Colect>> getColects() {
+        var listaColectes = service.getAll();
 
-        return new ResponseEntity<List<Status>>(listaStatuses, HttpStatus.OK);
+        return new ResponseEntity<List<Colect>>(listaColectes, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Status> postStatus(@RequestBody Status status) {
-        if (status == null) {
+    public ResponseEntity<Colect> postColect(@RequestBody Colect colect) {
+        if (colect == null) {
             return ResponseEntity.badRequest().build();
         }
-        if (status.getId() == 0) {
-            service.save(status);
-            return new ResponseEntity<Status>(status, HttpStatus.OK);
+        if (colect.getId() == 0) {
+            service.save(colect);
+            return new ResponseEntity<Colect>(colect, HttpStatus.OK);
 
         }
         return ResponseEntity.badRequest().build();
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Status> putStatus(@PathVariable long id, @RequestBody Status status){
-        if(id == 0 || status == null){
+    public ResponseEntity<Colect> putColect(@PathVariable long id, @RequestBody Colect colect){
+        if(id == 0 || colect == null){
             return ResponseEntity.badRequest().build();
         }
-        var statusExistente = service.getById(id);
-        if(statusExistente == null){
+        var colectExistente = service.getById(id);
+        if(colectExistente == null){
             return ResponseEntity.notFound().build();
         }
-        statusExistente.setName(status.getName());
-        service.save(statusExistente);
-        return new ResponseEntity<Status>(statusExistente, HttpStatus.OK);
+        colectExistente.setName(colect.getName());
+        service.save(colectExistente);
+        return new ResponseEntity<Colect>(colectExistente, HttpStatus.OK);
 
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Status> deleteStatus(@PathVariable long id){
+    public ResponseEntity<Colect> deleteColect(@PathVariable long id){
         if(id <= 0){
             return ResponseEntity.badRequest().build();
         }
-        var statusExistente = service.getById(id);
-        if(statusExistente == null){
+        var colectExistente = service.getById(id);
+        if(colectExistente == null){
             return ResponseEntity.notFound().build();
         }
         service.delete(id);
-        return new ResponseEntity<Status>(statusExistente, HttpStatus.OK);
-
+        return new ResponseEntity<Colect>(colectExistente, HttpStatus.OK);
     }
 
 }
