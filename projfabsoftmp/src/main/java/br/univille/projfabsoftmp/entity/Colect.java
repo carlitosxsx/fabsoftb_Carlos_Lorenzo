@@ -1,6 +1,5 @@
 package br.univille.projfabsoftmp.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;

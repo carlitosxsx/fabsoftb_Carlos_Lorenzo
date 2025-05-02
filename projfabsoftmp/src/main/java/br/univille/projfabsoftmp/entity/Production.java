@@ -53,8 +53,6 @@ public class Production extends Demand {
         }
     }
 
-    // Getters e Setters
-
     public ProductionType getTipo() {
         return tipo;
     }
@@ -73,6 +71,10 @@ public class Production extends Demand {
 
     public Date getDataVencimentoCriacao() {
         return dataVencimentoCriacao;
+    }
+
+    public void setDataVencimentoCriacao(Date dataVencimentoCriacao){
+        this.dataVencimentoCriacao = dataVencimentoCriacao;
     }
 
     public DeadlineStatus getPrazo() {
