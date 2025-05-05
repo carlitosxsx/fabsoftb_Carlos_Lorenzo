@@ -28,7 +28,7 @@ public class Implementation extends Demand {
     private Date dataAssinatura;
 
     public Implementation() {
-        // Construtor padrão para JPA
+        
     }
 
     public Implementation(Date dataVencimento, Date dataInicioImplantacao, Date dataConclusao) {

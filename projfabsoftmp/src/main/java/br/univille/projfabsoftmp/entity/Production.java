@@ -10,7 +10,6 @@ import java.util.Date;
 public class Production extends Demand {
 
     @ManyToOne
-    @JoinColumn(name = "tipo_id", nullable = false)
     private ProductionType tipo;
 
     @Temporal(TemporalType.DATE)

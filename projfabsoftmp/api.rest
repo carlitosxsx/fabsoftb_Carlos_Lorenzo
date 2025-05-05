@@ -1,3 +1,5 @@
+###_______________CLIENT_______________
+
 ### API GET 
 GET http://localhost:8080/api/v1/client
 
@@ -131,7 +133,6 @@ PUT http://localhost:8080/api/v1/demand/1
 Content-Type: application/json
 
 {
-    "id": 0,
     "name": "Nova Demanda - Via Roma",
     "responsible": {
         "id": 2,
@@ -157,3 +158,49 @@ Content-Type: application/json
 
 ### API DELETE
 DELETE http://localhost:8080/api/v1/demand/1
+
+###_______________PRODUCTION TYPE_______________
+
+### API GET 
+GET http://localhost:8080/api/v1/production-type
+
+### API INSERT 
+POST http://localhost:8080/api/v1/production-type
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Normal"
+}
+### API UPDATE 
+PUT http://localhost:8080/api/v1/production-type/1
+Content-Type: application/json
+
+{
+    "name": "Duplo"
+}
+### API DELETE
+DELETE http://localhost:8080/api/v1/production-type/1
+
+###_______________DEADLINE STATUS_______________
+
+### API GET 
+GET http://localhost:8080/api/v1/deadline-status
+
+### API INSERT 
+POST http://localhost:8080/api/v1/deadline-status
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Em dia"
+}
+### API UPDATE 
+PUT http://localhost:8080/api/v1/deadline-status/1
+Content-Type: application/json
+
+{
+    "name": "Em atraso"
+}
+### API DELETE
+DELETE http://localhost:8080/api/v1/deadline-status/1

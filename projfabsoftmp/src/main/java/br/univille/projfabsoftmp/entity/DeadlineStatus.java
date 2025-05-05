@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class DeadlineStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -17,7 +17,7 @@ public class DeadlineStatus {
         this.name = name;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -25,7 +25,7 @@ public class DeadlineStatus {
         return name;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

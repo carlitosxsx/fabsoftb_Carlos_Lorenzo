@@ -6,18 +6,19 @@ import jakarta.persistence.*;
 public class ProductionType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false, unique = true)
     private String name;
 
     public ProductionType() {}
 
-    public ProductionType(String name) {
+    public ProductionType(long id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -25,7 +26,7 @@ public class ProductionType {
         return name;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
