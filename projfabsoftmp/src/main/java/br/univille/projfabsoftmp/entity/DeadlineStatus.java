@@ -8,28 +8,28 @@ public class DeadlineStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String nome;
+    @Column(nullable = false)
+    private String name;
 
     public DeadlineStatus() {}
 
-    public DeadlineStatus(String nome) {
-        this.nome = nome;
+    public DeadlineStatus(String name) {
+        this.name = name;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 }

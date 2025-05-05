@@ -31,9 +31,11 @@ public class Demand {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
 
-    public Demand(long id, Employee responsible, Status status, Date deadline) {
+    public Demand(long id, String name, Employee responsible, Client client, Status status, Date deadline) {
         this.id = id;
+        this.name = name;
         this.responsible = responsible;
+        this.client = client;
         this.status = status;
         this.deadline = deadline;
     }

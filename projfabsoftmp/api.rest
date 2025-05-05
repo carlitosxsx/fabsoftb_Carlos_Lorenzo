@@ -1,0 +1,159 @@
+### API GET 
+GET http://localhost:8080/api/v1/client
+
+### API INSERT 
+POST http://localhost:8080/api/v1/client
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Via Roma"
+}
+### API UPDATE 
+PUT http://localhost:8080/api/v1/client/1
+Content-Type: application/json
+
+{
+    "name": "Via Veneza"
+}
+### API DELETE 
+DELETE http://localhost:8080/api/v1/client/1
+
+###_______________EMPLOYEE_______________
+
+### API GET
+GET http://localhost:8080/api/v1/employee
+
+### API INSERT - LIDER
+POST http://localhost:8080/api/v1/employee
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Carlos Silva",
+    "role": "Patrão",
+    "leader": null
+}
+
+### API INSERT - FUNCIONÁRIO
+POST http://localhost:8080/api/v1/employee
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Lorenzo Poncio",
+    "role": "Analista I",
+    "leader": {
+        "id": 1,
+        "name": "Carlos Silva",
+        "role": "Patrão",
+        "leader": null
+    }
+}
+### API UPDATE
+PUT http://localhost:8080/api/v1/employee/2
+Content-Type: application/json
+
+{
+    "name": "Lorenzo Poncio",
+    "role": "Analista II",
+    "leader": {
+        "id": 1,
+        "name": "Carlos Silva",
+        "role": "Patrão",
+        "leader": null
+    }
+}
+### API DELETE
+DELETE http://localhost:8080/api/v1/employee/2
+
+###_______________STATUS_______________
+
+### API GET
+GET http://localhost:8080/api/v1/status
+
+### API INSERT
+POST http://localhost:8080/api/v1/status
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "A Iniciar"
+}
+
+### API UPDATE
+PUT http://localhost:8080/api/v1/status/1
+Content-Type: application/json
+
+{
+    "name": "Concluído"
+}
+
+### API DELETE
+DELETE http://localhost:8080/api/v1/deadline-status/1
+
+###_______________DEMAND_______________
+
+### API GET
+GET http://localhost:8080/api/v1/demand
+
+### API INSERT
+POST http://localhost:8080/api/v1/demand
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Nova Demanda - Via Roma",
+    "responsible": {
+        "id": 2,
+        "name": "Lorenzo Poncio",
+        "role": "Analista I",
+        "leader": {
+            "id": 1,
+            "name": "Carlos Silva",
+            "role": "Patrão",
+            "leader": null
+        }
+    },
+    "client": {
+        "id": 1,
+        "name": "Via Roma"
+    },
+    "status": {
+        "id": 1,
+        "name": "A Iniciar"
+    },
+    "deadline": "2025-05-10"
+}
+
+### API UPDATE
+PUT http://localhost:8080/api/v1/demand/1
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "Nova Demanda - Via Roma",
+    "responsible": {
+        "id": 2,
+        "name": "Lorenzo Poncio",
+        "role": "Analista I",
+        "leader": {
+            "id": 1,
+            "name": "Carlos Silva",
+            "role": "Patrão",
+            "leader": null
+        }
+    },
+    "client": {
+        "id": 1,
+        "name": "Via Roma"
+    },
+    "status": {
+        "id": 1,
+        "name": "Concluído"
+    },
+    "deadline": "2025-05-10"
+}
+
+### API DELETE
+DELETE http://localhost:8080/api/v1/demand/1

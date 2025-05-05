@@ -28,7 +28,7 @@ public class Production extends Demand {
     @PrePersist
     @PreUpdate
     private void calcularAutomacoes() {
-        if (dataVencimentoGeral != null && tipo != null && tipo.getNome().equalsIgnoreCase("Normal")) {
+        if (dataVencimentoGeral != null && tipo != null && tipo.getName().equalsIgnoreCase("Normal")) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(dataVencimentoGeral);
             cal.add(Calendar.DAY_OF_MONTH, -2);
