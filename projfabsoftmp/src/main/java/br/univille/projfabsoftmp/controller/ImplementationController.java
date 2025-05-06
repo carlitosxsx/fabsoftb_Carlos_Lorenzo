@@ -54,6 +54,11 @@ public class ImplementationController {
         if(implementationExistente == null){
             return ResponseEntity.notFound().build();
         }
+        implementationExistente.setName(implementation.getName());
+        implementationExistente.setResponsible(implementation.getResponsible());
+        implementationExistente.setClient(implementation.getClient());
+        implementationExistente.setStatus(implementation.getStatus());
+        implementationExistente.setDeadline(implementation.getDeadline());
         implementationExistente.setDataVencimento(implementation.getDataVencimento());
         implementationExistente.setDataInicioImplantacao(implementation.getDataInicioImplantacao());
         implementationExistente.setDataConclusao(implementation.getDataConclusao());

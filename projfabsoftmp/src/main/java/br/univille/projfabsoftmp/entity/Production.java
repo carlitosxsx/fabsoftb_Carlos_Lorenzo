@@ -21,7 +21,6 @@ public class Production extends Demand {
     private Date dataVencimentoCriacao;
 
     @ManyToOne
-    @JoinColumn(name = "prazo_id")
     private DeadlineStatus prazo;
 
     @PrePersist

@@ -54,6 +54,11 @@ public class ProductionController {
         if(productionExistente == null){
             return ResponseEntity.notFound().build();
         }
+        productionExistente.setName(production.getName());
+        productionExistente.setResponsible(production.getResponsible());
+        productionExistente.setClient(production.getClient());
+        productionExistente.setStatus(production.getStatus());
+        productionExistente.setDeadline(production.getDeadline());
         productionExistente.setTipo(production.getTipo());
         productionExistente.setDataVencimentoGeral(production.getDataVencimentoGeral());
         productionExistente.setDataVencimentoCriacao(production.getDataVencimentoCriacao());

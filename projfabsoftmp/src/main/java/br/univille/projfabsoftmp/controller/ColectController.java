@@ -55,6 +55,15 @@ public class ColectController {
             return ResponseEntity.notFound().build();
         }
         colectExistente.setName(colect.getName());
+        colectExistente.setResponsible(colect.getResponsible());
+        colectExistente.setClient(colect.getClient());
+        colectExistente.setStatus(colect.getStatus());
+        colectExistente.setDeadline(colect.getDeadline());
+        colectExistente.setDataPagamento(colect.getDataPagamento());
+        colectExistente.setDataPrimeiroContato(colect.getDataPrimeiroContato());
+        colectExistente.setDataColetaConcluida(colect.getDataColetaConcluida());
+        colectExistente.setTmc(colect.getTmc());
+        
         service.save(colectExistente);
         return new ResponseEntity<Colect>(colectExistente, HttpStatus.OK);
 

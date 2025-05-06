@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.univille.projfabsoftmp.ProjfabsoftmpApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.148 s -- in br.univille.projfabsoftmp.ProjfabsoftmpApplicationTests
