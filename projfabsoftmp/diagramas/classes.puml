@@ -1,0 +1,193 @@
+@startuml
+
+package br.univille.projfabsoftmp.entity {
+    class Client {
+        - id : Long
+        - name : String
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+    }
+
+    class Employee {
+        - id : Long
+        - name : String
+        - role : String
+        - leader : Employee
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+        + getRole() : String
+        + setRole(role : String) : void
+        + getLeader() : Employee
+        + setLeader(leader : Employee) : void
+    }
+
+    class Demand {
+        - id : Long
+        - name : String
+        - responsible : Employee
+        - client : Client
+        - status : Status
+        - deadline : Date
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+        + getResponsible() : Employee
+        + setResponsible(responsible : Employee) : void
+        + getClient() : Client
+        + setClient(client : Client) : void
+        + getStatus() : Status
+        + setStatus(status : Status) : void
+        + getDeadline() : Date
+        + setDeadline(deadline : Date) : void
+    }
+
+    class Production extends Demand {
+        - id : Long
+        - name : String
+        - responsible : Employee
+        - client : Client
+        - status : Status
+        - deadline : Date
+        - tipo : ProductionType
+        - dataVencimentoGeral : Date
+        - dataVencimentoCriacao : Date
+        - deadlineStatus : DeadlineStatus
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+        + getResponsible() : Employee
+        + setResponsible(responsible : Employee) : void
+        + getClient() : Client
+        + setClient(client : Client) : void
+        + getStatus() : Status
+        + setStatus(status : Status) : void
+        + getDeadline() : Date
+        + setDeadline(deadline : Date) : void
+        + getTipo() : ProductionType
+        + setTipo(tipo : ProductionType) : void
+        + getDataVencimentoGeral() : Date
+        + setDataVencimentoGeral(data : Date) : void
+        + getDataVencimentoCriacao() : Date
+        + setDataVencimentoCriacao(data : Date) : void
+        + getDeadlineStatus() : DeadlineStatus
+        + setDeadlineStatus(status : DeadlineStatus) : void
+        - calcularAutomacoes() : void
+    }
+
+    class Colect extends Demand {
+        - id : Long
+        - name : String
+        - responsible : Employee
+        - client : Client
+        - status : Status
+        - deadline : Date
+        - dataPagamento : Date
+        - dataPrimeiroCOntato : Date
+        - dataColetaConcluida : Date
+        - tmc : int
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+        + getResponsible() : Employee
+        + setResponsible(responsible : Employee) : void
+        + getClient() : Client
+        + setClient(client : Client) : void
+        + getStatus() : Status
+        + setStatus(status : Status) : void
+        + getDeadline() : Date
+        + setDeadline(deadline : Date) : void
+        + getDataPagamento() : Date
+        + setDataPagamento(data : Date) : void
+        + getDataPrimeiroContato() : Date
+        + setDataPrimeiroContato(data : Date) : void
+        + getDataColetaConcluida() : Date
+        + setDataColetaConcluida(data : Date) : void
+        + getTmc() : int
+        + setTmc(tmc : int) : void
+    }
+
+    class Implementation extends Demand{
+        - id : Long
+        - name : String
+        - responsible : Employee
+        - client : Client
+        - status : Status
+        - deadline : Date
+        - dataVencimento : Date
+        - dataInicioImplantacao : Date
+        - dataConclusao : Date
+        - dataAssinatura : Date
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+        + getResponsible() : Employee
+        + setResponsible(responsible : Employee) : void
+        + getClient() : Client
+        + setClient(client : Client) : void
+        + getStatus() : Status
+        + setStatus(status : Status) : void
+        + getDeadline() : Date
+        + setDeadline(deadline : Date) : void
+        + getDataVencimento() : Date
+        + setDataVencimento(data : Date) : void
+        + getDataInicioImplantacao() : Date
+        + setDataInicioImplantacao(data : Date) : void
+        + getDataConclusao() : Date
+        + setDataConclusao(data : Date) : void
+        + getDataAssinatura() : Date
+        - setDataAssinatura(data : Date) : void
+    }
+
+    class ProductionType {
+        - id : Long
+        - name : String
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+    }
+
+    class Status {
+        - id : Long
+        - name : String
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+    }
+
+    class DeadlineStatus {
+        - id : Long
+        - name : String
+        --
+        + getId() : Long
+        + setId(id : Long) : void
+        + getName() : String
+        + setName(name : String) : void
+    }
+
+    Employee "1" --> "0..*" Demand : "reponsável por"
+    Status "1" --> "0..*" Demand : "possui"
+    Demand "1" --> "1" Client : "pertecence a"
+    ProductionType "1" --> "0..*" Production : "do tipo"
+    DeadlineStatus "1" --> "0..*" Production : "possui"
+    Employee "1" --> "1" Employee : "lider de"
+}
+
+@enduml

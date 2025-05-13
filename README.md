@@ -18,9 +18,7 @@ O projeto é composto pelas seguintes classes que representam as entidades do si
   
 - **Employee**: Representa um funcionário envolvido no processo de produção, com propriedades como `id`, `name`, `role` e métodos para acessar e modificar essas informações.
   
-- **Demand**: Representa uma demanda na fila de produção, com propriedades como `id`, `establishment`, `responsible`, `status`, `deadline` e métodos para acessar e modificar essas informações.
-  
-- **Establishment**: Representa um estabelecimento comercial, com propriedades como `id`, `name`, `address` e métodos para acessar e modificar essas informações.
+- **Demand**: Representa uma demanda na fila de produção, com propriedades como `id`, `responsible`, `status`, `deadline` e métodos para acessar e modificar essas informações.
   
 - **ProductionStage**: Representa uma etapa no processo de produção, com propriedades como `id`, `name`, `description` e métodos para acessar e modificar essas informações.
   
