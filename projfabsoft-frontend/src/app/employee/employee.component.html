@@ -1,4 +1,20 @@
 <main class="container">
     <h2>Employee</h2>
-    <table class="table"></table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Líder</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let umEmployee of listaEmployees">
+                <td>{{umEmployee.name}}</td>
+                <td>{{umEmployee.role}}</td>
+                <td>{{umEmployee.leader}}</td>
+            </tr>
+        </tbody>
+
+    </table>
 </main>
