@@ -1,1 +1,27 @@
-<p>form-employee works!</p>
+<main class="container">
+    <h2>Funcionário</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="txtNome">Nome</label>
+                <input type="text" 
+                [(ngModel)]="employee.name"
+                class="form-control"
+                id="txtNome">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="txtFuncao">Função</label>
+                <input type="text" 
+                [(ngModel)]="employee.role"
+                class="form-control"
+                id="txtFuncao">
+            </div>
+        </div>
+        <button (click)="salvar()" 
+        class="btn btn-primary">Salvar</button>
+    </div>
+
+
+
+</main>

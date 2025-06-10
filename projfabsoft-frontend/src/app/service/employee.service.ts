@@ -14,4 +14,8 @@ export class EmployeeService {
   getEmployee(){
     return this.http.get<Employee[]>(this.apiURL)
   }
+
+  saveEmployee(employee:Employee){
+    return this.http.post(this.apiURL, employee);
+  }
 }
