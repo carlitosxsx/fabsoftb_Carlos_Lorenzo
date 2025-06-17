@@ -1,7 +1,7 @@
 <main class="container">
     <h2>Employee</h2>
 
-    <a routerLink="/employees/novo" class="btn btn-primary">Novo</a> 
+    <a (click)="novo()" class="btn btn-primary">Novo</a> 
 
     <table class="table">
         <thead>
@@ -9,6 +9,7 @@
                 <th>Nome</th>
                 <th>Função</th>
                 <th>Líder</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +17,10 @@
                 <td>{{umEmployee.name}}</td>
                 <td>{{umEmployee.role}}</td>
                 <td>{{umEmployee.leader}}</td>
+
+
+                <td><a (click)="alterar(umEmployee)"
+                    class="btn btn-secondary">Alterar</a></td>
             </tr>
         </tbody>
 

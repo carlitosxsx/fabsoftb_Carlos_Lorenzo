@@ -32,6 +32,13 @@ public class EmployeeController {
         return new ResponseEntity<List<Employee>>(listaEmployeees, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> getEmployeeId(@PathVariable long id){
+        var umEmployee = service.getById(id);
+
+        return new ResponseEntity<Employee>(umEmployee, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Employee> postEmployee(@RequestBody Employee employee) {
         if (employee == null) {

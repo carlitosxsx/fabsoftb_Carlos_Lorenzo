@@ -4,7 +4,7 @@ import { EmployeeService } from '../service/employee.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-form-employee',
@@ -18,13 +18,23 @@ export class FormEmployeeComponent {
 
     constructor(
       private employeeService:EmployeeService,
-      private router:Router
-    ){}
+      private router:Router,
+      private activeRouter: ActivatedRoute
+    ){
+        const id = this.activeRouter.snapshot.paramMap.get('id');
+
+        if (id) {
+          this.employeeService.getEmployeeById(id).subscribe(employee => {
+            this.employee = employee;
+          });
+        }
+
+    }
 
     salvar(){
       this.employeeService.saveEmployee(this.employee)
         .subscribe(resultado => {
-          this.router.navigate(['employes']);
+          this.router.navigate(['employees']);
         });
     }
 }

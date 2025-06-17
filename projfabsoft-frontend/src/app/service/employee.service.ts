@@ -16,6 +16,14 @@ export class EmployeeService {
   }
 
   saveEmployee(employee:Employee){
-    return this.http.post(this.apiURL, employee);
+    if(employee.id){
+      return this.http.put(this.apiURL + '/' + employee.id, employee);
+    }
+    return this.http.post(this.apiURL,employee);
   }
+
+  getEmployeeById(id: any) {
+    return this.http.get<Employee>(this.apiURL + '/' + id);
+  }
+  
 }
