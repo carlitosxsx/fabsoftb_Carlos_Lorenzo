@@ -25,5 +25,9 @@ export class EmployeeService {
   getEmployeeById(id: any) {
     return this.http.get<Employee>(this.apiURL + '/' + id);
   }
+
+  deleteEmployee(id: any){
+    return this.http.delete<Employee>(this.apiURL + '/' + id);
+  }
   
 }
