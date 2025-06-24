@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Employee } from '../model/employee';
 import { EmployeeService } from '../service/employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ElementRef, ViewChild } from '@angular/core';
 import * as bootstrap from 'bootstrap';
 
 @Component({

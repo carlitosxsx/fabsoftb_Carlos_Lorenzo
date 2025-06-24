@@ -17,6 +17,12 @@
                 class="form-control"
                 id="txtFuncao">
             </div>
+            <div class="form-group">
+                <label for="txtLeader">Líder</label>
+                <select id="txtLeader" [(ngModel)]="employee.leader" class="form-select" [compareWith]="comparaLeader">
+                    <option *ngFor="let umLeader of listaLeader" [ngValue]="umLeader">{{ umLeader.name }}</option>
+                </select>
+            </div>
         </div>
         <button (click)="salvar()" 
         class="btn btn-primary">Salvar</button>

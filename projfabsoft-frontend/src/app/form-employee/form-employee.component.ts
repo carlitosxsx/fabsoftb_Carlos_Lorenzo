@@ -15,6 +15,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class FormEmployeeComponent {
     employee: Employee = new Employee();
+    listaLeader: Employee[] = [] 
 
     constructor(
       private employeeService:EmployeeService,
@@ -22,6 +23,10 @@ export class FormEmployeeComponent {
       private activeRouter: ActivatedRoute
     ){
         const id = this.activeRouter.snapshot.paramMap.get('id');
+
+        this.employeeService.getEmployee().subscribe(leader => {
+          this.listaLeader = leader
+        });
 
         if (id) {
           this.employeeService.getEmployeeById(id).subscribe(employee => {
@@ -36,5 +41,9 @@ export class FormEmployeeComponent {
         .subscribe(resultado => {
           this.router.navigate(['employees']);
         });
+    }
+
+    comparaLeader(obj1: Employee, obj2: Employee): boolean {
+      return obj1 && obj2 ? obj1.id === obj2.id : obj1 === obj2;
     }
 }

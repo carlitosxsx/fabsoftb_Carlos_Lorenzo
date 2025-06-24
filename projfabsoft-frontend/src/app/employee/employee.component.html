@@ -16,7 +16,7 @@
             <tr *ngFor="let umEmployee of listaEmployees">
                 <td>{{umEmployee.name}}</td>
                 <td>{{umEmployee.role}}</td>
-                <td>{{umEmployee.leader}}</td>
+                <td>{{umEmployee.leader != null ? umEmployee.leader.name : ''}}</td>
 
                 <td>
                     <a (click)="alterar(umEmployee)"
