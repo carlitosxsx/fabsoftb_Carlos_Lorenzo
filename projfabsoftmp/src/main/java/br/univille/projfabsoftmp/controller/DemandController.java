@@ -31,6 +31,12 @@ public class DemandController {
 
         return new ResponseEntity<List<Demand>>(listaDemandes, HttpStatus.OK);
     }
+    @GetMapping("/{id}")	
+    public ResponseEntity<Demand> getDemandId(@PathVariable Long id){
+        var demand = service.getById(id);
+
+        return new ResponseEntity<Demand>(demand, HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Demand> postDemand(@RequestBody Demand demand) {

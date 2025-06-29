@@ -1,0 +1,41 @@
+<main class="container">
+    <h2>Funcionário</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="txtTitle">Título</label>
+                <input type="text" 
+                [(ngModel)]="demand.name"
+                class="form-control"
+                id="txtTitle">
+            </div>
+            <div class="form-group">
+                <label for="txtResponsible">Responsável</label>
+                <select id="txtResponsible" [(ngModel)]="demand.responsible" class="form-select" [compareWith]="comparaResponsible">
+                    <option *ngFor="let umResponsible of listaResponsibles" [ngValue]="umResponsible">{{ umResponsible.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtClient">Cliente</label>
+                <select id="txtClient" [(ngModel)]="demand.client" class="form-select" [compareWith]="comparaClient">
+                    <option *ngFor="let umClient of listaClients" [ngValue]="umClient">{{ umClient.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtStatus">Status</label>
+                <select id="txtStatus" [(ngModel)]="demand.status" class="form-select" [compareWith]="comparaStatus">
+                    <option *ngFor="let umStatus of listaStatus" [ngValue]="umStatus">{{ umStatus.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtNome">Prazo</label>
+                <input type="date" 
+                [(ngModel)]="demand.deadline"
+                class="form-control"
+                id="txtNome">
+            </div>
+        </div>
+        <button (click)="salvar()" 
+        class="btn btn-primary">Salvar</button>
+    </div>
+</main>

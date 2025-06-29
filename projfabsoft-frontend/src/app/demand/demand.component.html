@@ -1,35 +1,43 @@
 <main class="container">
-    <h2>Clientes</h2>
-    <a (click)="novo()" class="btn btn-primary">Novo</a>
+    <h2>Demanda</h2>
+
+    <a (click)="novo()" class="btn btn-primary">Novo</a> 
+
     <table class="table">
         <thead>
             <tr>
-                <th>Nome</th>
+                <th>Título</th>
+                <th>Responsável/th>
+                <th>Cliente</th>
+                <th>Status</th>
+                <th>Prazo</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let umCliente of listaClientes">
-                <td>{{umCliente.name}}</td>
-                <td><a (click)="alterar(umCliente)" 
+            <tr *ngFor="let umDemand of listaDemands">
+                <td>{{umDemand.name}}</td>
+                <td>{{umDemand.responsible != null ? umDemand.responsible.name : ''}}</td>
+                <td>{{umDemand.client != null ? umDemand.client.name : ''}}</td>
+                <td>{{umDemand.deadline | date:'dd/MM/yyyy'}}</td>
+                <td>
+                    <a (click)="alterar(umDemand)"
                     class="btn btn-secondary">Alterar</a>
-                    <!--botao excluir -->
-                    <a (click)="abrirConfirmacao(umCliente)" 
+                    <a (click)="abrirConfirmacao(umDemand)" 
                     class="btn btn-danger">Excluir</a>
-                    <!--botao excluir -->
                 </td>
             </tr>
         </tbody>
-    </table>
 
+    </table>
     <div class="modal fade" #myModal tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Excluir cliente</h5>
+                    <h5 class="modal-title">Excluir demanda?</h5>
                 </div>
                 <div class="modal-body">
-                Confirma a exclusão do cliente?
+                Confirma a exclusão da demanda?
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="fecharConfirmacao()">Cancelar</button>
@@ -38,4 +46,3 @@
             </div>
         </div>
     </div>
-</main>
