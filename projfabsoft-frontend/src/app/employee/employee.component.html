@@ -1,47 +1,59 @@
-<main class="container">
-    <h2>Funcionários</h2>
+<main class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">
+      <i class="bi bi-people-fill text-primary me-2"></i>
+      Funcionários
+    </h2>
 
-    <a (click)="novo()" class="btn btn-primary">Novo</a> 
+    <button (click)="novo()" class="btn btn-primary d-flex align-items-center gap-2">
+      <i class="bi bi-plus-circle"></i> Novo
+    </button>
+  </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Função</th>
-                <th>Líder</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let umEmployee of listaEmployees">
-                <td>{{umEmployee.name}}</td>
-                <td>{{umEmployee.role}}</td>
-                <td>{{umEmployee.leader != null ? umEmployee.leader.name : ''}}</td>
-
-                <td>
-                    <a (click)="alterar(umEmployee)"
-                    class="btn btn-secondary">Alterar</a>
-                    <a (click)="abrirConfirmacao(umEmployee)" 
-                    class="btn btn-danger">Excluir</a>
-                </td>
-            </tr>
-        </tbody>
-
+  <div class="table-responsive">
+    <table class="table table-striped align-middle shadow-sm rounded">
+      <thead class="table-light">
+        <tr>
+          <th>Nome</th>
+          <th>Função</th>
+          <th>Líder</th>
+          <th class="text-end">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let umEmployee of listaEmployees">
+          <td>{{ umEmployee.name }}</td>
+          <td>{{ umEmployee.role }}</td>
+          <td>{{ umEmployee.leader?.name || '' }}</td>
+          <td class="text-end">
+            <button (click)="alterar(umEmployee)" class="btn btn-outline-secondary btn-sm me-2">
+              <i class="bi bi-pencil-fill"></i> Alterar
+            </button>
+            <button (click)="abrirConfirmacao(umEmployee)" class="btn btn-outline-danger btn-sm">
+              <i class="bi bi-trash-fill"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <div class="modal fade" #myModal tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Excluir funcionário</h5>
-                </div>
-                <div class="modal-body">
-                Confirma a exclusão do funcionário?
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" (click)="fecharConfirmacao()">Cancelar</button>
-                <button type="button" class="btn btn-primary" (click)="confirmarExclusao()">Sim</button>
-                </div>
-            </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" #myModal tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Excluir funcionário</h5>
         </div>
+        <div class="modal-body">
+          <p class="mb-0">Confirma a exclusão do funcionário?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="fecharConfirmacao()">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="confirmarExclusao()">Sim</button>
+        </div>
+      </div>
     </div>
+  </div>
 </main>
+

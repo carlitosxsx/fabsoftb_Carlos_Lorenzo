@@ -1,0 +1,15 @@
+.table th {
+  white-space: nowrap;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.modal-content {
+  border-radius: 0.5rem;
+}
+
+button i {
+  margin-right: 4px;
+}

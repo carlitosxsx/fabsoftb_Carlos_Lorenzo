@@ -1,5 +1,9 @@
 {
-  "dependencies": {
+  "devDependencies": {
     "@types/bootstrap": "^5.2.10"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.0",
+    "ng2-charts": "^8.0.0"
   }
 }

@@ -1,0 +1,16 @@
+.custom-nav-link {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+.custom-nav-link:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.navbar {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}

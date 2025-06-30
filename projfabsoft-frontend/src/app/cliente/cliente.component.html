@@ -1,41 +1,54 @@
-<main class="container">
-    <h2>Clientes</h2>
-    <a (click)="novo()" class="btn btn-primary">Novo</a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let umCliente of listaClientes">
-                <td>{{umCliente.name}}</td>
-                <td><a (click)="alterar(umCliente)" 
-                    class="btn btn-secondary">Alterar</a>
-                    <!--botao excluir -->
-                    <a (click)="abrirConfirmacao(umCliente)" 
-                    class="btn btn-danger">Excluir</a>
-                    <!--botao excluir -->
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<main class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">
+      <i class="bi bi-person-lines-fill text-primary me-2"></i>
+      Clientes
+    </h2>
 
-    <div class="modal fade" #myModal tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Excluir cliente</h5>
-                </div>
-                <div class="modal-body">
-                Confirma a exclusão do cliente?
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" (click)="fecharConfirmacao()">Cancelar</button>
-                <button type="button" class="btn btn-primary" (click)="confirmarExclusao()">Sim</button>
-                </div>
-            </div>
+    <button (click)="novo()" class="btn btn-primary d-flex align-items-center gap-2">
+      <i class="bi bi-plus-circle"></i> Novo
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped align-middle shadow-sm rounded">
+      <thead class="table-light">
+        <tr>
+          <th>Nome</th>
+          <th class="text-end">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let umCliente of listaClientes">
+          <td>{{ umCliente.name }}</td>
+          <td class="text-end">
+            <button (click)="alterar(umCliente)" class="btn btn-outline-secondary btn-sm me-2">
+              <i class="bi bi-pencil-fill"></i> Alterar
+            </button>
+            <button (click)="abrirConfirmacao(umCliente)" class="btn btn-outline-danger btn-sm">
+              <i class="bi bi-trash-fill"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" #myModal tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Excluir cliente</h5>
         </div>
+        <div class="modal-body">
+          Confirma a exclusão do cliente?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="fecharConfirmacao()">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="confirmarExclusao()">Sim</button>
+        </div>
+      </div>
     </div>
+  </div>
 </main>
